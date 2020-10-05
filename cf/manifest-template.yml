@@ -1,0 +1,12 @@
+---
+applications:
+- name: code1-example1${appHostSuffix}
+  path: ${build.artifactPath}
+  buildpacks:
+  - java_buildpack_offline
+  memory: 1G
+  instances: ${appInstances}
+  services:
+  - code1-db-example1
+  env:
+    JAVA_OPTS: -Dlogging.level.org.springframework.web=${logLevel}
